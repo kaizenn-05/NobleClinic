@@ -1,0 +1,55 @@
+.custom-modal {
+    z-index: 2000;
+    transition: 0.5s;
+    animation: fade 0.3s ease-in-out;
+}
+
+.custom-modal-background {
+    background: rgba(0, 0, 0, 0.384);
+}
+
+.custom-modal-background:focus {
+    background-color: red;
+}
+
+.custom-close-modal {
+    transition: 50ms;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+}
+
+.custom-close-modal:hover {
+    transform: translateY(-3px);
+}
+
+.custom-close-modal:active {
+    transform: translateY(3px);
+}
+
+.custom-fade {
+    animation: scale 0.3s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes scale {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.384);
+    }
+}
