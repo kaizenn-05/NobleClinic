@@ -1,0 +1,359 @@
+:root {
+    --clinic-primary: #696cff;
+    --clinic-background: #f5f5f9;
+    --clinic-text: #566a7f;
+    --clinic-muted: #8592a3;
+    --clinic-sidebar-width: 260px;
+    --clinic-shadow: 0 2px 8px rgba(67, 89, 113, 0.1);
+}
+
+body {
+    margin: 0;
+    background: var(--clinic-background);
+    color: var(--clinic-text);
+    font-family: Arial, sans-serif;
+}
+
+.clinic-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: var(--clinic-sidebar-width);
+    background: #fff;
+    padding: 28px 16px;
+    box-shadow: var(--clinic-shadow);
+    overflow-y: auto;
+    z-index: 1040;
+}
+
+.clinic-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px 30px;
+    color: var(--clinic-text);
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.brand-symbol {
+    color: var(--clinic-primary);
+    font-size: 36px;
+    line-height: 1;
+}
+
+.sidebar-label {
+    margin: 24px 16px 12px;
+    color: var(--clinic-muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px 16px;
+    margin-bottom: 5px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--clinic-text);
+    text-decoration: none;
+    text-align: left;
+    font-size: 14px;
+}
+
+.menu-link.active,
+.menu-link:not(:disabled):hover {
+    background: #e7e7ff;
+    color: var(--clinic-primary);
+}
+
+.menu-link:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.menu-icon {
+    width: 22px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar-note {
+    margin: 32px 16px 0;
+    font-size: 12px;
+    color: var(--clinic-muted);
+}
+
+.main-wrapper {
+    margin-left: var(--clinic-sidebar-width);
+    padding: 24px 32px;
+}
+
+.clinic-navbar {
+    display: flex;
+    position: sticky;
+    top: 16px;
+    z-index: 1020;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: var(--clinic-shadow);
+}
+
+.navbar-title {
+    font-weight: 600;
+}
+
+.sidebar-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--clinic-text);
+    font-size: 24px;
+}
+
+.preview-badge {
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: #e7e7ff;
+    color: var(--clinic-primary);
+    font-size: 11px;
+}
+
+.account-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-avatar {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e7e7ff;
+    color: var(--clinic-primary);
+    font-weight: 700;
+}
+
+.page-content {
+    padding: 28px 0;
+}
+
+.page-heading {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.clinic-card {
+    height: 100%;
+    padding: 24px;
+    border: 0;
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: var(--clinic-shadow);
+}
+
+.welcome-card {
+    border-left: 4px solid var(--clinic-primary);
+}
+
+.welcome-card h2 {
+    color: var(--clinic-primary);
+    font-size: 22px;
+}
+
+.stat-label {
+    color: var(--clinic-muted);
+    font-size: 14px;
+}
+
+.stat-value {
+    margin: 12px 0;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.stat-note {
+    color: #25854b;
+    font-size: 12px;
+}
+
+.btn-clinic {
+    background: var(--clinic-primary);
+    border-color: var(--clinic-primary);
+    color: #fff;
+}
+
+.btn-clinic:hover,
+.btn-clinic:focus-visible {
+    background: #575ae0;
+    border-color: #575ae0;
+    color: #fff;
+}
+
+.page-footer {
+    padding: 16px 0;
+    border-top: 1px solid #e4e6eb;
+    color: var(--clinic-muted);
+    font-size: 13px;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .clinic-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+
+    .main-wrapper {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .sidebar-toggle {
+        display: inline-block;
+    }
+
+    body.sidebar-open .clinic-sidebar {
+        transform: translateX(0);
+    }
+
+    body.sidebar-open .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        border: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1030;
+    }
+
+    .clinic-navbar {
+        padding: 14px 16px;
+    }
+}
+
+/*  Additional styles for specific pages can be added below for login and registration forms */
+.auth-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 100vh;
+}
+
+.auth-brand-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background: var(--clinic-background);
+}
+
+.auth-introduction {
+    margin: auto;
+    max-width: 480px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.auth-symbol {
+    display: grid;
+    place-items: center;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 32px;
+    border-radius: 40px;
+    background: #e7e7ff;
+    color: var(--clinic-primary);
+    font-size: 110px;
+    line-height: 1;
+}
+
+.auth-introduction h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.auth-introduction p {
+    margin-top: 16px;
+    color: var(--clinic-muted);
+}
+
+.auth-form-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px;
+    background: #fff;
+}
+
+.auth-form-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-form-container h1 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.auth-description {
+    margin-bottom: 28px;
+    color: var(--clinic-muted);
+    font-size: 14px;
+}
+
+.auth-form-container .form-label {
+    font-size: 14px;
+}
+
+.auth-form-container .form-control {
+    min-height: 42px;
+    border-color: #d9dee3;
+    color: var(--clinic-text);
+}
+
+.auth-form-container .form-control:focus {
+    border-color: var(--clinic-primary);
+    box-shadow: 0 0 0 3px rgba(105, 108, 255, 0.12);
+}
+
+.auth-form-container a {
+    color: var(--clinic-primary);
+    text-decoration: none;
+}
+
+.auth-form-container a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 991.98px) {
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-brand-panel {
+        padding: 24px;
+    }
+
+    .auth-brand-panel .clinic-brand {
+        padding-bottom: 0;
+    }
+
+    .auth-introduction {
+        display: none;
+    }
+
+    .auth-form-panel {
+        padding: 32px 24px;
+    }
+}

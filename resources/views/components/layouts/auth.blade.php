@@ -21,16 +21,16 @@
     <meta property="og:title" content="PAC-AIMS | Academic Enrollment & Information Management System" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pac-aims.com/" />
-    <meta property="og:image" content="https://pac-aims.com/assets/images/pac-aims-og-image.png" />
+    {{-- <meta property="og:image" content="https://pac-aims.com/assets/images/pac-aims-og-image.png" /> --}}
     <meta property="og:description"
         content="PAC-AIMS is a smart academic enrollment system that helps schools manage student registration, records, and academic processes efficiently." />
     <meta property="og:site_name" content="PAC-AIMS" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://pac-aims.com/" />
+    {{-- <link rel="canonical" href="https://pac-aims.com/" /> --}}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@
     <script src="{{ asset('assets/vendor/js/template-customizer.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
