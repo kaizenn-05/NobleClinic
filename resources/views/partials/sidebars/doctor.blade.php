@@ -24,6 +24,13 @@
             Patient Records
         </button>
 
+        <a href="{{ route('doctor.queue.index') }}"
+            class="menu-link {{ request()->routeIs('doctor.queue.*') ? 'active' : '' }}"
+            @if(request()->routeIs('doctor.queue.*')) aria-current="page" @endif>
+                <span class="menu-icon" aria-hidden="true">▤</span>
+                My Patient Queue
+        </a>
+
         <button type="button" class="menu-link" disabled>
             <span class="menu-icon" aria-hidden="true">✚</span>
             Consultations
@@ -33,21 +40,5 @@
             <span class="menu-icon" aria-hidden="true">▤</span>
             Prescriptions
         </button>
-
-        <div class="sidebar-label">ACCOUNT</div>
-
-        <a href="{{ route('profile.edit') }}" class="menu-link">
-            <span class="menu-icon" aria-hidden="true">○</span>
-            My Profile
-        </a>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="menu-link">
-                <span class="menu-icon" aria-hidden="true">↪</span>
-                Logout
-            </button>
-        </form>
     </nav>
 </aside>

@@ -96,7 +96,7 @@ body {
 .clinic-navbar {
     display: flex;
     position: sticky;
-    top: 16px;
+    top: 0;
     z-index: 1020;
     align-items: center;
     justify-content: space-between;
@@ -356,4 +356,307 @@ body {
     .auth-form-panel {
         padding: 32px 24px;
     }
+}
+
+/* Sidebar has its own scroll area */
+.clinic-sidebar {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Lock the background while the mobile sidebar is open */
+@media (max-width: 991.98px) {
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    body.sidebar-open .sidebar-overlay {
+        touch-action: none;
+    }
+}
+
+.account-menu-button {
+    display: flex;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.account-menu-button:focus-visible {
+    outline: 2px solid var(--clinic-primary);
+    outline-offset: 3px;
+}
+
+.clinic-navbar .dropdown-menu {
+    min-width: 220px;
+    border: 1px solid #e4e6eb;
+    border-radius: 8px;
+}
+
+.clinic-navbar .dropdown-item {
+    padding: 10px 16px;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    left: var(--clinic-sidebar-width);
+    right: 0;
+    z-index: 1020;
+
+    padding: 14px 32px;
+    background: var(--clinic-background);
+    border-top: 1px solid #e4e6eb;
+    color: var(--clinic-muted);
+    font-size: 13px;
+}
+
+/* Space para hindi matakpan ng footer ang last content */
+.main-wrapper {
+    padding-bottom: 90px;
+}
+
+@media (max-width: 991.98px) {
+    .page-footer {
+        left: 0;
+        padding: 14px 16px;
+    }
+}
+
+/* profile */
+.profile-avatar {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    font-size: 30px;
+}
+
+.clinic-card .form-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.clinic-card .form-control {
+    min-height: 42px;
+    border-color: #d9dee3;
+    color: var(--clinic-text);
+}
+
+.clinic-card .form-control:focus {
+    border-color: var(--clinic-primary);
+    box-shadow: 0 0 0 3px rgba(105, 108, 255, 0.12);
+}
+/* modal */
+.btn,
+.menu-link {
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.btn-clinic:hover {
+    box-shadow: 0 4px 12px rgba(105, 108, 255, 0.25);
+}
+
+.clinic-table {
+    --bs-table-bg: transparent;
+    color: var(--clinic-text);
+}
+
+.clinic-table thead th {
+    padding: 14px 16px;
+    background: #f5f5f9;
+    color: var(--clinic-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.clinic-table tbody td {
+    padding: 18px 16px;
+    border-color: #eceef1;
+    transition: background-color 0.2s ease;
+}
+
+.clinic-table tbody tr:hover td {
+    background: #f8f8ff;
+}
+
+.role-badge,
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.role-badge {
+    background: #e7e7ff;
+    color: #575ae0;
+}
+
+.status-active {
+    background: #e4f5e9;
+    color: #237a43;
+}
+
+.status-inactive {
+    background: #fce8e8;
+    color: #b33838;
+}
+
+.clinic-modal {
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(67, 89, 113, 0.18);
+}
+
+.clinic-modal .modal-header,
+.clinic-modal .modal-body,
+.clinic-modal .modal-footer {
+    padding: 24px;
+}
+
+.clinic-modal .form-control,
+.clinic-modal .form-select {
+    min-height: 44px;
+    border-color: #d9dee3;
+}
+
+.clinic-modal .form-control:focus,
+.clinic-modal .form-select:focus {
+    border-color: var(--clinic-primary);
+    box-shadow: 0 0 0 3px rgba(105, 108, 255, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .menu-link,
+    .clinic-table tbody td {
+        transition: none;
+    }
+}
+
+/* delete update */
+.clinic-table {
+    min-width: 680px;
+}
+
+.clinic-table th,
+.clinic-table td {
+    vertical-align: middle;
+}
+
+.clinic-table th:not(:first-child),
+.clinic-table td:not(:first-child) {
+    white-space: nowrap;
+}
+
+.clinic-table .role-badge,
+.clinic-table .status-badge {
+    min-width: 88px;
+    text-align: center;
+}
+
+/* allert modal */
+.users-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.users-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.users-search .form-control {
+    min-width: 0;
+}
+
+.users-search .btn {
+    flex-shrink: 0;
+}
+
+.users-search .form-control:focus {
+    border-color: var(--clinic-primary);
+    box-shadow: 0 0 0 3px rgba(105, 108, 255, 0.12);
+}
+
+.success-symbol {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #e4f5e9;
+    color: #237a43;
+    font-size: 34px;
+}
+
+@media (max-width: 767.98px) {
+    .users-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .users-search {
+        max-width: none;
+        flex-wrap: wrap;
+    }
+
+    .users-search .form-control {
+        flex: 1 1 180px;
+    }
+
+    /* warning allert */
+    .timed-alert {
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.alert-countdown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.45;
+    transform-origin: left;
+    animation: alert-countdown 2.5s linear forwards;
+}
+
+.timed-alert.is-closing {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+@keyframes alert-countdown {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .alert-countdown {
+        animation: none;
+    }
+
+    .timed-alert {
+        transition: none;
+    }
+}
 }

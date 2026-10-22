@@ -47,3 +47,26 @@ if (document.readyState === 'loading') {
 } else {
     initializeSidebar();
 }
+
+// warning allert auto-dismiss
+function initializeTimedAlerts() {
+    document.querySelectorAll('[data-auto-dismiss]').forEach((alert) => {
+        if (alert.dataset.dismissInitialized) return;
+
+        alert.dataset.dismissInitialized = 'true';
+
+        setTimeout(() => {
+            alert.classList.add('is-closing');
+
+            setTimeout(() => {
+                alert.remove();
+            }, 250);
+        }, 2500);
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTimedAlerts);
+} else {
+    initializeTimedAlerts();
+}

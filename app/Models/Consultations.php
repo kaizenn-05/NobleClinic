@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Consultations extends Model
 {
+    protected $table = 'consultations';
+
      protected $fillable = [
         'blood_pressure_systolic',
         'blood_pressure_diastolic',

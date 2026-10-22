@@ -1,0 +1,102 @@
+.patient-record {
+    color: #334155;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.record-heading {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.record-heading h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.record-heading p {
+    margin: 4px 0;
+}
+
+.record-patient {
+    padding-bottom: 16px;
+    border-bottom: 2px solid #d9dee3;
+}
+
+.record-patient h3,
+.record-visit h3 {
+    font-size: 16px;
+}
+
+.record-patient p {
+    margin: 6px 0;
+}
+
+.record-visit {
+    padding: 20px 0;
+    border-bottom: 1px solid #d9dee3;
+}
+
+.record-visit h4 {
+    margin: 16px 0 4px;
+    font-size: 14px;
+}
+
+.record-notes {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.record-generated {
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.record-print-page {
+    max-width: 850px;
+    margin: 24px auto;
+    padding: 0 24px;
+    background: white;
+}
+
+.print-toolbar {
+    margin-bottom: 24px;
+}
+
+.print-toolbar button {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #696cff;
+    color: white;
+    cursor: pointer;
+}
+
+@page {
+    size: A4;
+    margin: 15mm;
+}
+
+@media print {
+    .print-toolbar {
+        display: none;
+    }
+
+    .record-print-page {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .patient-record {
+        color: black;
+        font-size: 11pt;
+    }
+
+    .record-visit h3,
+    .record-visit h4 {
+        break-after: avoid;
+    }
+}

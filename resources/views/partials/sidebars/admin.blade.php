@@ -8,14 +8,20 @@
 
     <nav class="sidebar-menu" aria-label="Admin navigation">
         <a href="{{ route('admin.dashboard') }}"
-           class="menu-link active"
-           aria-current="page">
+        class="menu-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+        @if(request()->routeIs('admin.dashboard')) aria-current="page" @endif>
             <span class="menu-icon" aria-hidden="true">▦</span>
             Dashboard
         </a>
 
+        <a href="{{ route('admin.users.index') }}"
+            class="menu-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
+            @if(request()->routeIs('admin.users.*')) aria-current="page" @endif>
+                <span class="menu-icon" aria-hidden="true">▤</span>
+                User Management
+        </a>
+
         @foreach ([
-            'User Management',
             'All Patient Records',
             'Appointments',
             'Consultations',
@@ -29,21 +35,5 @@
                 {{ $menu }}
             </button>
         @endforeach
-
-        <div class="sidebar-label">ACCOUNT</div>
-
-        <a href="{{ route('profile.edit') }}" class="menu-link">
-            <span class="menu-icon" aria-hidden="true">○</span>
-            My Profile
-        </a>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="menu-link">
-                <span class="menu-icon" aria-hidden="true">↪</span>
-                Logout
-            </button>
-        </form>
     </nav>
 </aside>
